@@ -3,12 +3,20 @@ import { connect } from 'react-redux';
 
 import fetchUser from '@actions/fetchUser';
 
-const User = ({ userId, fetchUser }) => {
+const User = ({ userId, fetchUser, user }) => {
   useEffect(() => {
     fetchUser(userId);
   }, [userId, fetchUser]);
 
-  return <h4>by {userId}</h4>;
+  if (!user) {
+    return null;
+  }
+
+  return <h4>by {user.name}</h4>;
 };
 
-export default connect(null, { fetchUser })(User);
+const mapStateToProps = (state, ownProps) => ({
+  user: state.users[ownProps.userId],
+});
+
+export default connect(mapStateToProps, { fetchUser })(User);
