@@ -6,7 +6,7 @@ import fetchPosts from '@actions/fetchPosts';
 const PostList = ({ fetchPosts }) => {
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [fetchPosts]);
 
   return <div>postList</div>;
 };
