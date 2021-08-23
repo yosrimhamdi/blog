@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-// import fetchPosts from '../redux/actions/'
+import fetchPosts from '@actions/fetchPosts';
 
-const PostList = () => <div>postList</div>;
+const PostList = () => {
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  return <div>postList</div>;
+};
 
 export default PostList;
