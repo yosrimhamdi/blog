@@ -1,5 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
-const User = ({ userId }) => <h4>by {userId}</h4>;
+import fetchUser from '@actions/fetchUser';
 
-export default User;
+const User = ({ userId, fetchUser }) => {
+  useEffect(() => {
+    fetchUser(userId);
+  }, [userId, fetchUser]);
+
+  return <h4>by {userId}</h4>;
+};
+
+export default connect(null, { fetchUser })(User);
