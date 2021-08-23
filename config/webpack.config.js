@@ -325,6 +325,7 @@ module.exports = function (webpackEnv) {
         .map(ext => `.${ext}`)
         .filter(ext => useTypeScript || !ext.includes('ts')),
       alias: {
+        '@apis': path.resolve(__dirname, '../src/apis'),
         '@actions': path.resolve(__dirname, '../src/redux/actions'),
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/

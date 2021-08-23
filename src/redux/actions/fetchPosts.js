@@ -1,6 +1,7 @@
 import { FETCH_POSTS } from '../types';
+import jsonPlaceholder from '@apis/jsonPlaceholder';
 
-const fetchPosts = () => dispatch => {
+const fetchPosts = () => async dispatch => {
   const response = await jsonPlaceholder.get('/posts');
 
   console.log(response);
